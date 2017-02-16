@@ -44,6 +44,10 @@ module.exports = {
       "type": "confirm",
       "message": "Install vue-router?"
     },
+    "resource": {
+      "type": "confirm",
+      "message": "Install vue-resource?"
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"
