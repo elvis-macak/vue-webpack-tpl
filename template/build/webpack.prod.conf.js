@@ -95,7 +95,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             return 'max-age=315360000, no-transform, public';
         },
       },
-      basePath: 'website/admindash/apps/{{ app }}'
+      basePath: 'website/admindash/apps/{{ name }}'
     })
   ]
 })
