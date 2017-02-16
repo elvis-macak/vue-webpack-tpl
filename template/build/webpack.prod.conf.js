@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var S3Plugin = require('webpack-s3-plugin')
 var env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : {{/if_or}}config.build.env
@@ -76,6 +77,25 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
+    }),
+    // upload all built assets to s3
+    new S3Plugin({
+      s3Options: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        region: 'us-west-1'
+      },
+      s3UploadOptions: {
+        Bucket: process.env.AWS_BUCKET,
+        ServerSideEncryption: 'AES256',
+        CacheControl(fileName) {
+          if (/\.html/.test(fileName))
+            return 'no-cache, no-transform, public';
+          else
+            return 'max-age=315360000, no-transform, public';
+        },
+      },
+      basePath: 'website/admindash/apps/{{ app }}'
     })
   ]
 })
