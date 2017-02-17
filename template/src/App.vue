@@ -11,12 +11,6 @@
 
 <script>
 {{#unless router}}
-import Vue from 'vue';
-
-const auth_token = localStorage.auth_token;
-Vue.http.headers.common['Token'] = auth_token;
-Vue.http.get('/api/auth', [options]).catch(()=>{location.href='/login';});
-
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 {{/unless}}

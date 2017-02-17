@@ -7,13 +7,21 @@ import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+import VueResource from 'vue-resource'
 
+Vue.use(VueResource)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   {{#router}}
   router,
   {{/router}}
+  http: {
+    root: '/api',
+    headers: {
+      Token: localStorage.auth_token
+    }
+  },
   {{#if_eq build "runtime"}}
   render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{/if_eq}}
