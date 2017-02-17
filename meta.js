@@ -18,7 +18,7 @@ module.exports = {
       "type": "string",
       "required": false,
       "message": "Project description",
-      "default": "A Vue.js project"
+      "default": "A Vue.js demo project from Glow"
     },
     "author": {
       "type": "string",
@@ -55,6 +55,7 @@ module.exports = {
     "lintConfig": {
       "when": "lint",
       "type": "list",
+      "default": "airbnb",
       "message": "Pick an ESLint preset",
       "choices": [
         {
