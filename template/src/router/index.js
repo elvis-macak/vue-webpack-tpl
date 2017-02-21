@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/glow',
       name: 'Glow',
-      component: Demo{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      component: Glow{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   ]{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
