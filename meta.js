@@ -48,6 +48,10 @@ module.exports = {
       "type": "confirm",
       "message": "Install vue-resource?"
     },
+    "material": {
+      "type": "confirm",
+      "message": "Install vue-material?"
+    },
     "lint": {
       "type": "confirm",
       "message": "Use ESLint to lint your code?"

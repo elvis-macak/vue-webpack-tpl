@@ -6,14 +6,24 @@ import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#resource}}
 import VueResource from 'vue-resource'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/resource}}
+{{#material}}
+import VueMaterial from 'vue-material'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import 'vue-material/dist/vue-material.css'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/material}}
+
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
 
+
 {{#resource}}
 Vue.use(VueResource){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/resource}}
+
+{{#material}}
+Vue.use(VueMaterial){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+{{/material}}
 
 /* eslint-disable no-new */
 new Vue({
@@ -39,8 +49,8 @@ new Vue({
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 {{#resource}}
-Vue.http.get('/api/auth').catch(() => {
-  localStorage.auth_token = null{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  location.href = '/login'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+// Vue.http.get('/api/auth').catch(() => {
+//   localStorage.auth_token = null{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+//   location.href = '/login'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+// }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/resource}}
